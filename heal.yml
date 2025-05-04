@@ -1,0 +1,14 @@
+---
+- name: Self-Healing Playbook
+  hosts: localhost
+  become: true
+  tasks:
+    - name: kill existing node_exporter process
+      shell: pkill -f 'node_exporter'
+      ignore_error: true
+
+
+    - name: Restart node_exporter
+      shell: nohup /usr/local/bin/node_exporter > /dev/null 2>&1 &
+      ignore_errors: true
+    
