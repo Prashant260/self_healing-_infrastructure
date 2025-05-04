@@ -1,0 +1,11 @@
+groups:
+  - name: node_exporter_alerts
+    rules:
+      - alert: NodeExporterDown
+        expr: up{job="node_exporter"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Node Exporter is Down"
+          description: "The node exporter job is not responding for 30 seconds."
