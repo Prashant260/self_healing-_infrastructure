@@ -42,7 +42,7 @@ Alertmanager 0.21+
 Clone the Repository
 
 
-git clone https://github.com/yourusername/self-healing-infrastructure.git
+git clone repo link of --> self-healing-infrastructure.git
 cd self-healing-infrastructure
 Install Prometheus and Alertmanager
 
