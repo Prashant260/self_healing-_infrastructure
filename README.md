@@ -1,3 +1,5 @@
+# Self-Healing Infrastructure with Prometheus, Alertmanager & Ansible
+
 ## About the Project
 
 This project sets up a **self-healing system** to automatically detect and remedy service outages. It uses:
@@ -8,79 +10,65 @@ This project sets up a **self-healing system** to automatically detect and remed
 
 The solution is designed to reduce downtime by immediately addressing issues as they occur.
 
+## Features
 
+- **Service Monitoring**: Track key service metrics and status.
+- **Alerting**: Define custom alert rules to detect service failures.
+- **Automated Recovery**: Use Ansible playbooks to fix issues immediately.
+- **Scalability**: Easily extend the system to monitor and remediate multiple services.
+- **Documentation**: Fully documented configurations and implementation steps.
 
+## Prerequisites
 
-*Features*
-Service Monitoring: Track key service metrics and status.
+- **Operating System**: Ubuntu 18.04/20.04 or any Linux distro.
+- **Python 3.6+** (if using the Flask webhook).
+- **Ansible 2.9+**
+- **Prometheus 2.x**
+- **Alertmanager 0.21+**
 
-Alerting: Define custom alert rules to detect service failures.
+## Installation and Setup
 
-Automated Recovery: Use Ansible playbooks to fix issues immediately.
+### Clone the Repository
 
-Scalability: Easily extend the system to monitor and remediate multiple services.
-
-Documentation: Fully documented configurations and implementation steps.
-
-
-
-
-*Prerequisites*
-Operating System: Ubuntu 18.04/20.04 or any Linux distro.
-
-Docker (Optional): To run some components in containers.
-
-Python 3.6+ (if using the Flask webhook).
-
-Ansible 2.9+
-
-Prometheus 2.x
-
-Alertmanager 0.21+
-
-*Installation and Setup*
-Clone the Repository
-
-
-git clone repo link of --> self-healing-infrastructure.git
+```bash
+git clone <repo-link> self-healing-infrastructure.git
 cd self-healing-infrastructure
 Install Prometheus and Alertmanager
-
 Download the respective binaries from Prometheus and Alertmanager.
 
 Extract and follow the official documentation for configuration.
 
 Set Up Ansible
+Ensure Ansible is installed on your system:
 
-Ensure Ansible is installed on your system.
-
-
+bash
+Copy
+Edit
 sudo apt update
 sudo apt install ansible
 (Optional) Setup Flask Webhook Receiver
-
 Navigate to the webhook directory (if provided) and install dependencies:
 
-
+bash
+Copy
+Edit
 pip install -r requirements.txt
 Run the webhook server:
 
-
+bash
+Copy
+Edit
 python app.py
+Run the Ansible playbook with:
 
-
-
-
-
-
-
-Run the playbook with:
-
-*ansible-playbook playbook.yml*
+bash
+Copy
+Edit
+ansible-playbook playbook.yml
 Webhook Receiver
 Ensure your webhook endpoint correctly triggers the Ansible playbook. The app.py should catch incoming alerts and call Ansible using a system call or similar method.
 
-*Usage*
+Usage
 Start Prometheus & Alertmanager: Run their binaries with the configuration files provided.
 
 Deploy the Flask Webhook Receiver: If you're using the Flask app to receive alerts.
@@ -89,9 +77,18 @@ Simulate a Failure: Stop a monitored service to trigger an alert.
 
 Watch the Recovery: Verify that the Ansible playbook is automatically executed to restore the service.
 
-*Testing*
+Testing
 Use controlled scenarios to simulate service downtime.
 
 Check logs in Prometheus, Alertmanager, and Ansible to confirm that alerts are sent and recovery tasks are executed.
 
 Validate that the service is automatically restarted after an incident.
+
+Documentation
+Prometheus Documentation
+
+Alertmanager Documentation
+
+Ansible Documentation
+
+Flask Documentation
