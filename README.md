@@ -21,7 +21,7 @@ The solution is designed to reduce downtime by immediately addressing issues as 
 ## Prerequisites
 
 - **Operating System**: Ubuntu 18.04/20.04 or any Linux distro.
-- **Python 3.6+** (if using the Flask webhook).
+- **Python 3.6+**.
 - **Ansible 2.9+**
 - **Prometheus 2.x**
 - **Alertmanager 0.21+**
@@ -41,29 +41,17 @@ Extract and follow the official documentation for configuration.
 Set Up Ansible
 Ensure Ansible is installed on your system:
 
-bash
-Copy
-Edit
 sudo apt update
 sudo apt install ansible
-(Optional) Setup Flask Webhook Receiver
-Navigate to the webhook directory (if provided) and install dependencies:
 
-bash
-Copy
-Edit
 pip install -r requirements.txt
 Run the webhook server:
 
-bash
-Copy
-Edit
+
 python app.py
 Run the Ansible playbook with:
 
-bash
-Copy
-Edit
+ 
 ansible-playbook playbook.yml
 Webhook Receiver
 Ensure your webhook endpoint correctly triggers the Ansible playbook. The app.py should catch incoming alerts and call Ansible using a system call or similar method.
